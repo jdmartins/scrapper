@@ -1,0 +1,54 @@
+<h1>Keywords</h1>
+<ul>
+    <% keywords.forEach(function(keyword) { %>
+    <li><%=keyword.verb %> - <%=keyword.match %>%</li><a href="#" onclick="editTarget(target._id)">edit</a>
+    <% }); %>
+</ul>
+<form style="border:1px solid grey;" action="/keywords" method="post" enctype="multipart/form-data">
+    <input type="file" name="keywords" id="keywords">
+    <input type="submit" value="Send json">
+</form>
+<!-- <form action="/keywords" method="post">
+    <input type="text" name="verb" id="verb">
+    <input type="range" value="0" min="0" max="100" step="5" oninput="updateRangeValue(event)">
+    <output>0</output>
+</form> -->
+
+<h1>Target</h1>
+<% targets.forEach(function(target) { %>
+<li><%=target.url %></li><a href="#" onclick="editTarget(target._id)">edit</a>
+<% }); %>
+<form action="/targets" method="post" enctype="multipart/form-data">
+    <input type="file" name="targets" id="targets">
+    <input type="submit" value="Send json">
+</form>
+<!-- <form action="/target" method="post">
+
+    <input type="text" name="url" id="" placeholder="url" />
+    <h4>Search</h4>
+    <div>
+        <input type="radio" id="path" name="search_type" value="path">
+        <label for="path">path</label>
+    </div>
+
+    <div>
+        <input type="radio" id="query" name="search_type" value="query" checked>
+        <label for="query">Query string</label>
+    </div>
+    <input type="text" name="search_key" id="search_key" placeholder="search key" />
+
+    <h4>Pagination</h4>
+    <div>
+        <input type="radio" id="path" name="pagination_type" value="path">
+        <label for="path">path</label>
+    </div>
+
+    <div>
+        <input type="radio" id="query" name="pagination_type" value="query" checked>
+        <label for="query">Query string</label>
+    </div>
+    <input type="text" name="pagination_key" id="pagination_key" placeholder="Pagination key" />
+    <input type="text" name="pagination_value" id="pagination_value" placeholder="Pagination value" />
+
+</form> -->
+<script src="js/main.js"></script>
